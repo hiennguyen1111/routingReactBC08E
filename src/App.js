@@ -1,24 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
+// Cau hinh routing
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import Home from './pages/Home/Home';
+import Login from './pages/Login/Login';
+import Register from './pages/Register/Register';
+import About from './pages/About/About';
+import Header from './components/HomePage/Header';
+import UseStateDemo from './pages/Hook/UseStateDemo/UseStateDemo';
+import UseEffectDemo from './pages/Hook/UserEffectDemo/UseEffectDemo';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Header />
+      <Switch>
+      <Route exact path="/home" component={Home} render={(propsRoute)=>{
+        return <div>
+          This is homepage!
+          <Home />
+        </div>
+      }} />
+      <Route exact path="/login" component={Login} />
+      <Route exact path="/register" component={Register} />
+      <Route exact path="/about" component={About} />
+      <Route exact path="/usestate" component={UseStateDemo} />
+      <Route exact path="/useeffect" component={UseEffectDemo} />
+      <Route exact path="/" component={Home} />
+      </Switch>
+
+    </BrowserRouter>
   );
 }
 
