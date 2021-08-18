@@ -59,6 +59,17 @@ export default class Header extends Component {
                   exact
                   activeClassName="active"
                   className="nav-link"
+                  to="/hoc"
+                >
+                  HOC (Higher order component)
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  activeStyle={{ background: "#fff", color: "#000" }}
+                  exact
+                  activeClassName="active"
+                  className="nav-link"
                   to="/login"
                 >
                   Login
@@ -108,6 +119,10 @@ export default class Header extends Component {
 
                   <NavLink className="dropdown-item" to="/ajaxrfc">
                     Ajax react function
+                  </NavLink>
+
+                  <NavLink className="dropdown-item" to="/apimiddleware">
+                    Api Middle Ware
                   </NavLink>
                 </div>
               </li>
