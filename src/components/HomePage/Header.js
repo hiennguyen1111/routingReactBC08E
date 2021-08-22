@@ -75,6 +75,17 @@ export default class Header extends Component {
                   Login
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink
+                  activeStyle={{ background: "#fff", color: "#000" }}
+                  exact
+                  activeClassName="active"
+                  className="nav-link"
+                  to="/antd"
+                >
+                  Ant Design
+                </NavLink>
+              </li>
               <li className="nav-item dropdown">
                 <NavLink
                   className="nav-link dropdown-toggle"

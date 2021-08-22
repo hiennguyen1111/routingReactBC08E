@@ -1,6 +1,12 @@
 import React from "react";
+import { useSelector } from 'react-redux';
+
 
 export default function Modal(props) {
+  const { Component, handleSubmit } = useSelector(
+    (state) => state.ModalReducer
+  );
+
   return (
     <div>
       <div>
@@ -35,7 +41,7 @@ export default function Modal(props) {
                   <span aria-hidden="true">×</span>
                 </button>
               </div>
-              <div className="modal-body">{props.component}</div>
+              <div className="modal-body">{Component}</div>
               <div className="modal-footer">
                 <button
                   type="button"
@@ -44,8 +50,10 @@ export default function Modal(props) {
                 >
                   Close
                 </button>
-                <button type="button" className="btn btn-primary">
-                  Save
+                <button type="button" className="btn btn-primary" onClick={()=>{
+                  handleSubmit()
+                }}>
+                  Submit
                 </button>
               </div>
             </div>

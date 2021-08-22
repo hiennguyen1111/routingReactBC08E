@@ -15,13 +15,17 @@ import ApiMiddleWare from "./pages/AxiosDemo/ApiMiddleWare";
 import Detail from "./pages/Detail/Detail";
 import Profile from "./pages/Profile/Profile";
 import HOC from "./pages/HOC/HOC";
+import { HomeTemplate } from "./templates/HomeTemplate";
+import { UserTemplate } from "./templates/UserTemplate";
+import { AdminTemplate } from "./templates/AdminTemplate";
+import AntDemo from "./pages/AntDemo/AntDemo";
 
 function App() {
   return (
     <BrowserRouter>
-      <Header />
+      {/* <Header /> */}
       <Switch>
-        <Route
+        {/* <Route
           exact
           path="/home"
           component={Home}
@@ -33,9 +37,9 @@ function App() {
               </div>
             );
           }}
-        />
+        /> */}
 
-        <Route
+        {/* <Route
           exact
           path="/about"
           component={About}
@@ -47,22 +51,27 @@ function App() {
               </div>
             );
           }}
-        />
+        /> */}
 
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/register" component={Register} />
-        <Route exact path="/about" component={About} />
-        <Route exact path="/usestate" component={UseStateDemo} />
-        <Route exact path="/useeffect" component={UseEffectDemo} />
-        <Route exact path="/reduxhook" component={ReduxHookDemo} />
-        <Route exact path="/ajaxrcc" component={AxiosDemo} />
-        <Route exact path="/ajaxrfc" component={AxiosDemoRFC} />
-        <Route exact path="/apimiddleware" component={ApiMiddleWare} />
-        <Route exact path="/detail/:id" component={Detail} />
-        <Route exact path="/profile" component={Profile} />
-        <Route exact path="/hoc" component={HOC} />
+        <HomeTemplate path="/home" component={Home} />
+        <HomeTemplate path="/about" component={About} />
 
-        <Route exact path="/" component={Home} />
+        <UserTemplate path="/login" component={Login} />
+        <UserTemplate path="/register" component={Register} />
+        
+        <HomeTemplate exact path="/usestate" component={UseStateDemo} />
+        <HomeTemplate exact path="/useeffect" component={UseEffectDemo} />
+        <HomeTemplate exact path="/reduxhook" component={ReduxHookDemo} />
+        <HomeTemplate exact path="/ajaxrcc" component={AxiosDemo} />
+        <HomeTemplate exact path="/ajaxrfc" component={AxiosDemoRFC} />
+        <HomeTemplate exact path="/apimiddleware" component={ApiMiddleWare} />
+        <HomeTemplate exact path="/detail/:id" component={Detail} />
+        <HomeTemplate exact path="/profile" component={Profile} />
+        <HomeTemplate exact path="/hoc" component={HOC} />
+
+        <AdminTemplate path="/admin/antd" component={AntDemo} />
+
+        <HomeTemplate exact path="/" component={Home} />
       </Switch>
     </BrowserRouter>
   );
