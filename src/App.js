@@ -1,6 +1,6 @@
 import "./App.css";
 // Cau hinh routing
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Router, Switch } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
@@ -20,9 +20,15 @@ import { UserTemplate } from "./templates/UserTemplate";
 import { AdminTemplate } from "./templates/AdminTemplate";
 import AntDemo from "./pages/AntDemo/AntDemo";
 
+// Thu vien giup chuyen huong trang( history) o cac file khong phai component
+import {createBrowserHistory} from 'history';
+export const history = createBrowserHistory();
+
+
+
 function App() {
   return (
-    <BrowserRouter>
+    <Router history={history} >
       {/* <Header /> */}
       <Switch>
         {/* <Route
@@ -73,7 +79,7 @@ function App() {
 
         <HomeTemplate exact path="/" component={Home} />
       </Switch>
-    </BrowserRouter>
+    </Router>
   );
 }
 

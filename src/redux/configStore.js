@@ -1,17 +1,18 @@
-import { applyMiddleware, combineReducers, createStore} from 'redux';
-import { FacebookReducer } from './Reducers/FacebookReducer';
-import { PhimReducer } from './Reducers/PhimReducer';
-import { ModalReducer } from './Reducers/ModalReducer';
+import { applyMiddleware, combineReducers, createStore } from "redux";
+import { FacebookReducer } from "./Reducers/FacebookReducer";
+import { PhimReducer } from "./Reducers/PhimReducer";
 
-// Cau hinh 
-import thunk from 'redux-thunk'
-
+//Cấu hình middlewrare (Để có thể dispatch redux 1 action là function)
+import thunk from "redux-thunk";
+import { ModalReducer } from "./Reducers/ModalReducer";
+import { QuanLyNguoiDungReducer } from "./Reducers/QuanLyNguoiDungReducer";
 
 const rootReducer = combineReducers({
-    // Khai bao reducer
-    FacebookReducer: FacebookReducer,
-    PhimReducer: PhimReducer,
-    ModalReducer: ModalReducer,
-})
+  //Khai báo reducer
+  FacebookReducer,
+  PhimReducer,
+  ModalReducer,
+  QuanLyNguoiDungReducer,
+});
 
-export const store = createStore(rootReducer, applyMiddleware(thunk))
+export const store = createStore(rootReducer, applyMiddleware(thunk));
