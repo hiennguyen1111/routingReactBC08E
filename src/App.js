@@ -20,8 +20,11 @@ import { UserTemplate } from "./templates/UserTemplate";
 import { AdminTemplate } from "./templates/AdminTemplate";
 import AntDemo from "./pages/AntDemo/AntDemo";
 
-// Thu vien giup chuyen huong trang( history) o cac file khong phai component
+// Thu vien giup chuyen huong trang (history) o cac file khong phai component
 import {createBrowserHistory} from 'history';
+import ApiMiddleWareMobile from "./pages/AxiosDemo/ApiMiddleWareMobile";
+import Films from "./pages/_Admin/Films/Films";
+import AddFilms from "./pages/_Admin/AddFilms/AddFilms";
 export const history = createBrowserHistory();
 
 
@@ -76,8 +79,12 @@ function App() {
         <HomeTemplate exact path="/hoc" component={HOC} />
 
         <AdminTemplate path="/admin/antd" component={AntDemo} />
+        <AdminTemplate path="/admin/films" component={Films} />
+        <AdminTemplate path="/admin/addfilms" component={AddFilms} />
 
         <HomeTemplate exact path="/" component={Home} />
+
+        <HomeTemplate exact path="/" component={ApiMiddleWare} mobileComponent={ApiMiddleWareMobile} />
       </Switch>
     </Router>
   );

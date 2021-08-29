@@ -1,9 +1,9 @@
-import axios from 'axios';
-import {history} from '../../App.js';
-import { ACCESS_TOKEN, TOKEN_CYBERSOFT, USER_LOGIN } from '../../util/settings'
+import axios from 'axios'
+import { history } from '../../App';
+import { ACCESS_TOKEN, http, TOKEN_CYBERSOFT, USER_LOGIN } from '../../util/settings'
 
 
-export const dangKyAction = (thongTinNguoiDung) => {
+export const dangKyAction = (thongTinNguoiDung, history) => {
     // console.log({thongTinNguoiDung})
     // return ;
     //promise sẽ dùng trong tình huống gọi các api không phụ thuộc giá trị nhau
@@ -23,7 +23,7 @@ export const dangKyAction = (thongTinNguoiDung) => {
             console.log({ result })
             //thành công => chuyển hướng trang
             alert('Đăng ký thành công !');
-            history.push('/login')
+            history.push('/login');
         })
 
 
@@ -39,25 +39,22 @@ export const dangKyAction = (thongTinNguoiDung) => {
 }
 
 
-
-
-
-
-export const dangKyAsyncAction = (thongTinNguoiDung) => {
+export const dangKyAsyncAction = (thongTinNguoiDung, history) => {
     // console.log({thongTinNguoiDung})
     // return ;
     //async await dùng khi những api cần thực hiện tuần tự 
     return async (dispatch) => {
         try {
-            const result = await axios({
-                url: `http://movienew.cybersoft.edu.vn/api/QuanLyNguoiDung/DangKy`,
-                method: 'POST',
-                data: thongTinNguoiDung,
-                headers: {
-                    'TokenCybersoft': TOKEN_CYBERSOFT
-                }
-            });
-
+            // const result = await axios({
+            //     url: `http://movienew.cybersoft.edu.vn/api/QuanLyNguoiDung/DangKy`,
+            //     method: 'POST',
+            //     data: thongTinNguoiDung,
+            //     headers: {
+            //         'TokenCybersoft': TOKEN_CYBERSOFT
+            //     }
+            // });
+            const result = await http.post(`/api/QuanLyNguoiDung/DangKy`,thongTinNguoiDung)
+         
             alert('Đăng ký thành công !');
             history.push('/login');
 
@@ -69,7 +66,6 @@ export const dangKyAsyncAction = (thongTinNguoiDung) => {
 
     }
 }
-
 
 
 export const dangNhapAction = (thongTinDangNhap) => {
